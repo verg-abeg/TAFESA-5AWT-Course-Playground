@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>52DA session 10</title>
+	<meta charset="utf-8" />
+	<style>
+		body{
+			background-color:lightblue;
+			}
+			
+		#container{
+			margin: 0 auto;
+			width:80%;
+			text-align:center;
+			padding:20px;
+			background-color:rgba(255,255,255,0.5);
+			}
+		
+		.blueTxt{
+			color:blue;
+		}
+		
+		#redPara{
+			color:red;
+		}
+		
+		.fancyFont{
+			font-family:'Century Gothic', sans-serif;
+			font-size:14pt;
+			font-weight:bold;
+		}
+		
+		.borders{
+			border:2px solid blue;
+		}
+
+		
+	</style>
+    <script src="../js/jquery-2.2.3.min.js"></script>
+    
+</head>
+<body>
+	<div id="container" onclick="changeElements()">
+	<h1 id="firstHeading" class="blueTxt">Animals</h1>
+	<img id="logo" src="../images/formatBrain/gorilla.png" alt="gorilla" width="250" height="250" /><span id="newPicture"></span>
+	
+	<p id="intro">Animals are multicellular, eukaryotic organisms of the kingdom <span class="blueTxt">Animalia</span> 
+	&lpar;also called Metazoa&rpar;. All animals are motile, meaning they can move spontaneously and independently, at some point 
+	in their lives. Their body plan eventually becomes fixed as they develop, although some undergo a process of metamorphosis 
+	later on in their lives. All animals are <span class="blueTxt">heterotrophs</span>: they must ingest other organisms 
+	or their products for sustenance.</p>
+	
+	<p id="more">Most known animal phyla appeared in the fossil record as marine species during the Cambrian explosion, 
+	about 542 million years ago. Animals are divided into various sub-groups, some of which are&colon; 
+	vertebrates &lpar;birds, mammals, amphibians, reptiles, fish&rpar;&semi; molluscs &lpar;clams, oysters, octopuses, 
+	squid, snails&rpar;&semi; arthropods &lpar;millipedes, centipedes, insects, spiders, scorpions, crabs, lobsters, 
+	shrimp&rpar;&semi; annelids &lpar;earthworms, leeches&rpar;&semi; sponges&semi; and jellyfish.</p>
+
+	<p id="redPara">The word "animal" comes from the Latin animalis, meaning having breath, 
+	having soul or living being. In everyday non-scientific usage the word excludes humans – that is, "animal" 
+	is often used to refer only to non-human members of the kingdom Animalia; often, only closer relatives of 
+	humans such as mammals, or mammals and other vertebrates, are meant. The <span class="blueTxt">biological definition</span>
+	of the word refers to all members of the kingdom Animalia, encompassing creatures as diverse as sponges, jellyfish, insects, 
+	and humans.</p>
+	
+	
+	
+	<p id="reference">Information from Wikipedia: <a href="https://en.wikipedia.org/wiki/Animal">https://en.wikipedia.org/wiki/Animal</a>
+	
+	<p id="licence">Image modified from Illustrations by Format Brain &lpar;<a href="https://www.flickr.com/photos/formatbrain_/456822293/in/album-72157600085990864/" target="_blank">link to original</a>&rpar; 
+	available for use under Creative Commons licence <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">Attribution 2.0 Generic</a></p>
+	
+	<p>Click here to read more about <a href="https://en.wikipedia.org/wiki/Gorilla" target="_blank">Gorillas</a></p>
+	<form>
+		<input type="button" id="changer" onclick="changeImg()" value="Click me to add a photo"/>
+	</form>
+	<br />
+	
+	</div>
+	
+	<script>
+        //alert("click the container to see changes");
+        
+        function changeElements(){
+            $("h1").text("woohoo! It worked!");
+            $(".blueTxt").text("GORILLA");
+            $("#redPara").text("the gorillas take over the world!");
+            $("#newPicture").html("<img src='../images/formatBrain/bananaBubble.png' alt='Mmm nanas' />");
+            $("#reference").addClass("fancyFont");
+            /**$("img").attr({
+                src: "../images/formatBrain/bananaBubble.png"
+                }).appendTo("#newPicture");
+            $(".fancyFont").appendTo("#reference");**/
+            
+        }
+        
+        function changeImg(){
+            $("<img>").attr({
+                src: "../images/formatBrain/rojito.png",
+                alt: "Rojito attack"
+            }).addClass("borders").appendTo("#container");
+        }
+        $(document).ready(function() {
+            $("#container").slideDown('slow');
+        });
+        
+        $("#logo").mouseover(function(){
+				$("#logo").hide("slow");
+        });
+        
+        $("#logo").mouseout(function(){
+				$("#logo").show("slow");
+        });
+
+    </script>
+</body>
+    
+</html>
